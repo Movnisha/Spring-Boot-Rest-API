@@ -1,14 +1,12 @@
 package com.Rest_API.Service;
 
-import com.Rest_API.POJO.Employee;
+import com.Rest_API.Model.Employee;
 import com.Rest_API.Repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class EmployeeService
@@ -19,7 +17,7 @@ public class EmployeeService
     @Autowired
    private JdbcTemplate jdbcTemplate;
 
-    public List<Employee> getUsers()
+    public List<Employee> getEmployees()
     {
         List<Employee> employees = employeeRepository.findAll();
         return employees;
@@ -35,18 +33,24 @@ public class EmployeeService
         return (List<Employee>) employeeRepository.getById(id);
     }
 
+    public void deleteEmployee(Employee employee)
+    {
+        employeeRepository.delete(employee);
+    }
+
     public int update(Employee employee)
     {
         return jdbcTemplate.update("UPDATE employee_details SET Emp_name=?, Emp_salary=?, Emp_dept=? WHERE Emp_id=?",
 
-                 new Object[] { employee.getEmp_name(), employee.getEmp_salary(), employee.getEmp_dept() ,employee.getEmp_id()});
+                 new Object[]
+                         { employee.getEmp_name(), employee.getEmp_salary(), employee.getEmp_dept() ,employee.getEmp_id()});
     }
 
     public int getSalary(Employee employee)
     {
         return jdbcTemplate.update("select * from employee_details WHERE Emp_id=?",
-
-                                        new Object[] { employee.getEmp_id()});
+                new Object[]
+                        { employee.getEmp_id()});
 
     }
     public long deleteByEmp_Id(long id)
@@ -58,7 +62,4 @@ public class EmployeeService
     {
         return jdbcTemplate.update("DELETE from employee_details");
     }
-
-
-
 }

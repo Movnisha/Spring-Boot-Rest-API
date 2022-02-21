@@ -45,17 +45,33 @@
 			<scope>test</scope>
 		</dependency>
 
+
+
+
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13.2</version>
-            <scope>test</scope>
+            <scope>compile</scope>
         </dependency>
+
+
+
+
+		<dependency>
+            <groupId>de.plushnikov.lombok-intellij-plugin</groupId>
+            <artifactId>lombok-plugin</artifactId>
+            <version>0.5</version>
+            <scope>compile</scope>
+        </dependency>
+
+
     </dependencies>
 
 	<build>
@@ -63,6 +79,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${parent.version}</version>
 			</plugin>
 		</plugins>
 	</build>

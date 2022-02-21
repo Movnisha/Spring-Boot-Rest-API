@@ -1,4 +1,4 @@
-package com.Rest_API.POJO;
+package com.Rest_API.Model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,5 +28,6 @@ public class Employee
 
     @Column(name = "Emp_dept")
     private String Emp_dept;
+
 
 }

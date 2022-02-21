@@ -1,6 +1,6 @@
 package com.Rest_API.Repository;
 
-import com.Rest_API.POJO.Employee;
+import com.Rest_API.Model.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

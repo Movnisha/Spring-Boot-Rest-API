@@ -2,7 +2,7 @@ package com.Rest_API.Controller;
 
 
 import com.Rest_API.Exception.ResourceNotFoundException;
-import com.Rest_API.POJO.Employee;
+import com.Rest_API.Model.Employee;
 import com.Rest_API.Repository.EmployeeRepository;
 import com.Rest_API.Service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -108,7 +108,7 @@ public class EmployeeController
 
     //Delete Employee by id
     @DeleteMapping("/id/{id}")
-    public ResponseEntity<String> deleteTutorial(@PathVariable("id") long id)
+    public ResponseEntity<String> deleteEmployee(@PathVariable("id") long id)
     {
         try
         {
